@@ -81,11 +81,14 @@ dc.barChart("#Chart")
     var bars = chart.selectAll('.bar').each(function (d) {
         barsData.push(d);
     });
+    console.log(bars);
 
     //Remove old values (if found)
     d3.select(bars[0][0].parentNode).select('#inline-labels').remove();
     //Create group for labels
     var gLabels = d3.select(bars[0][0].parentNode).append('g').attr('id', 'inline-labels');
+
+    console.log(gLabels);
 
     for (var i = bars[0].length - 1; i >= 0; i--) {
 
@@ -99,6 +102,7 @@ dc.barChart("#Chart")
             .attr('y', +b.getAttribute('y') + 15)
             .attr('text-anchor', 'middle')
             .attr('fill', 'white');
+            console.log(barsData[i].data.value);
     }
 
 })
